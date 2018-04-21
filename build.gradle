@@ -1,0 +1,77 @@
+buildscript {
+    repositories {
+        maven {
+            name = "gradlePlugins"
+            url = "https://plugins.gradle.org/m2/"
+        }
+
+        jcenter()
+    }
+
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION")
+    }
+}
+
+subprojects {
+    group = "de.creatorcat.samples"
+    version = "0.1-SNAPSHOT"
+
+    repositories {
+        jcenter()
+    }
+}
+
+def configureCommonProject(Project project) {
+    configure(project) {
+
+        apply plugin: "kotlin-platform-common"
+
+        dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-stdlib-common:$KOTLIN_VERSION"
+
+            testImplementation "org.jetbrains.kotlin:kotlin-test-common:$KOTLIN_VERSION"
+            testImplementation "org.jetbrains.kotlin:kotlin-test-annotations-common:$KOTLIN_VERSION"
+        }
+    }
+}
+
+def configurePlatformJvmProject(Project project, Project commonProject) {
+    configure(project) {
+
+        apply plugin: "kotlin-platform-jvm"
+
+        configureJvmCompileTask(compileTestKotlin)
+        configureJvmCompileTask(compileKotlin)
+
+        test {
+            // use junit5
+            useJUnitPlatform()
+        }
+
+        dependencies {
+            expectedBy commonProject
+
+            implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KOTLIN_VERSION"
+
+            // junit5
+            testImplementation "org.junit.jupiter:junit-jupiter-api:$JUNIT5_VERSION"
+            testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$JUNIT5_VERSION"
+            // kotlin junit support: still based on junit4
+            // kotlin junit is a must for common-module implementations and does not hurt regular jvm projects
+            // so its added for both (in fact this allows mixin junit4 & 5 which is quite useful)
+            testImplementation "junit:junit:$JUNIT4_VERSION"
+            testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$JUNIT5_VERSION"
+            testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
+            testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$KOTLIN_VERSION"
+        }
+    }
+}
+
+def configureJvmCompileTask(kotlinCompileTask) {
+    configure(kotlinCompileTask) {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+}

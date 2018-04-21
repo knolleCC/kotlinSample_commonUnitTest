@@ -1,0 +1,2 @@
+include(":sampleUnitTest-common")
+include(":sampleUnitTest-jvm")

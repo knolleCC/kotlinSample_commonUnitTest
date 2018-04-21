@@ -1,0 +1,29 @@
+###########################
+# Gradle
+###########################
+
+# temp directories
+.gradle/
+build
+
+###########################
+## idea - this is derived from https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+###########################
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/uiDesigner.xml
+.idea/dictionaries/
+
+# Gradle generated / related stuff
+.idea/**/gradle.xml
+.idea/**/libraries
+.idea/modules/
+.idea/modules.xml
+.idea/compiler.xml
+.idea/kotlinc.xml
+
+## Plugin-specific files:
+
+# IntelliJ
+out/

@@ -1,0 +1,22 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="creatorcat_inspection" />
+    <inspection_tool class="Destructure" enabled="true" level="INFO" enabled_by_default="true" />
+    <inspection_tool class="FunctionName" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <scope name="Tests" level="WEAK WARNING" enabled="true">
+        <option name="namePattern" value="[a-z][A-Za-z\d]*(_[a-z][A-Za-z\d]*)*" />
+      </scope>
+    </inspection_tool>
+    <inspection_tool class="KDocMissingDocumentation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="PropertyName" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <scope name="Tests" level="WEAK WARNING" enabled="true">
+        <option name="namePattern" value="[a-z][A-Za-z\d]*(_[a-z][A-Za-z\d]*)*" />
+      </scope>
+    </inspection_tool>
+    <inspection_tool class="Reformat" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RemoveCurlyBracesFromTemplate" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="TestFunctionName" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="namePattern" value="[a-z][A-Za-z\d]*(_[a-z][A-Za-z\d]*)*" />
+    </inspection_tool>
+  </profile>
+</component>
