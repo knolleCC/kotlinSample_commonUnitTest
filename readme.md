@@ -2,7 +2,7 @@
 
 ## Problem: test run fails in IntelliJ IDEA 2018.1
 
-1. Clone *master*
+1. Clone *common-test-fails-in-IDE*
 2. Open project and import gradle main module (auto import whole project)
 3. Run `SampleTest` via context menu
 4. Error: *No JDK specified*
