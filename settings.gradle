@@ -1,2 +1,2 @@
-include(":sampleUnitTest-common")
-include(":sampleUnitTest-jvm")
+include(":simpleUnitTest-common")
+include(":simpleUnitTest-jvm")
