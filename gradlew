@@ -6,9 +6,6 @@
 ##
 ##############################################################################
 
-# Specify JDK to be used by gradle
-JAVA_HOME=$JDK9_HOME
-
 # Attempt to set APP_HOME
 # Resolve links: $0 may be a link
 PRG="$0"
